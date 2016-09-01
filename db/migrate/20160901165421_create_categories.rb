@@ -5,6 +5,8 @@ class CreateCategories < ActiveRecord::Migration
       t.references :user, index: true, foreign_key: true
       t.string :level
       t.string :video
+      t.string :description
+      t.string :private
 
       t.timestamps null: false
     end

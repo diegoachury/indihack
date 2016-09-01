@@ -1,31 +1,32 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Categories</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>User</th>
-      <th>Level</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="content-title-pz">
+	<h1>
+		Tu camino
+	</h1>
+	<h1>hacia una sociedad en paz</h1>
+</div>
+<div class="content-arbol">
+	<ul class=" level" style = " margin-bottom: 1rem;">
     <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-        <td><%= category.user %></td>
-        <td><%= category.level %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Category', new_category_path %>
+		<li>
+      <% if category.private == "1" %>
+        <%= link_to category  do %>
+          <div class="box">
+            <img src="http://placehold.it/10x10">
+          </div>
+          <div class="content-info">
+            <p><%= category.name %></p>
+          </div>
+          <% end %>
+          <% else %>
+          <div class="box">
+            <img src="http://placehold.it/10x10">
+          </div>
+          <div class="content-info">
+            <p><%= category.name %></p> <br>
+            <span>bloqueado</span>
+          </div>
+      <% end %>
+		</li>
+		<% end %>
+	</ul>
+</div>

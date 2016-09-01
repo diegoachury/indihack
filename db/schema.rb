@@ -21,8 +21,10 @@ ActiveRecord::Schema.define(version: 20160901165827) do
     t.integer  "user_id"
     t.string   "level"
     t.string   "video"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "description"
+    t.string   "private"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "categories", ["user_id"], name: "index_categories_on_user_id", using: :btree

@@ -16,3 +16,11 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+$( document ).ready(function() {
+	$('#preguntas').click(function(){
+		$('.content-pregunta').toggle("slow");
+	});
+	$('#cerrar').click(function(){
+		$('.content-pregunta').hide();
+	});
+});

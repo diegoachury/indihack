@@ -14,8 +14,72 @@
   </head>
 
   <body>
+    <header>
+    	<div class="content-menu">
+    		<div class="row expanded">
+    			<div class="small-12 columns">
+    				<div class="content-right float-left">
 
-    <%= yield %>
+    					<ul class="menu">
+    						<li>
+                  <div class="content-logo">
+                    <a href="/">
+                      <img src="/img/logo.png" alt="">
+                    </a>
+                  </div>
+                </li>
+    					</ul>
+    				</div>
+    				<div class="content-left float-right">
+    					<% if user_signed_in? %>
+                <ul class="dropdown menu" data-dropdown-menu>
+                  <li>
+                    <a href="#">Diego Achury</a>
+                    <ul class="menu vertical">
+                      <li><%= link_to "Hacia la paz", categories_path,  class: "button paz"%></li>    						
+                      <li><%= link_to 'Salir', destroy_user_session_path, :method=>'delete' %></li>
+                    </ul>
+                  </li>
+                </ul>
+                <% else %>
+                <ul class="menu">
+                  <li><%= link_to "Hacia la paz", categories_path,  class: "button paz"%></li>
+                  <li><%= link_to 'Iniciar', new_user_session_path %></li>
+                  <li><%= link_to 'Registrar', new_user_registration_path %></li>
+                </ul>
+                <% end %>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </header>
 
+    <div class="content">
+    	<div class="row expanded">
+    		<div class="small-4 columns">
+    			<div class="dash-perfil">
+    				<p class="title"><b>Perfil de progreso</b></p>
+    				<div class="content-img">
+    					<img src="/img/person.jpg" alt="">
+    				</div>
+    				<div class="content-perfil">
+    					<p><b>tu avance</b></p>
+    					<p> Aqui tu barra de medida que indica que tanto has avanzado</p>
+    				</div>
+    				<div class="content-bar">
+    					<div class="success progress" role="progressbar" tabindex="0" aria-valuenow="25" aria-valuemin="0" aria-valuetext="25 percent" aria-valuemax="100">
+      					<div class="progress-meter" style="width: 25%"></div>
+    					</div>
+    				</div>
+    			</div>
+
+    		</div>
+    		<div class="small-8 columns">
+    			<div class="dash">
+            <%= yield %>
+    			</div>
+    		</div>
+    	</div>
+    </div>
   </body>
 </html>

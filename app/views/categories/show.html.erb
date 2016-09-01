@@ -1,19 +1,37 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+<div class="content-show">
+  <div class="row">
+    <div class="small-12 columns no-padding">
+      <div class="content-video">
+        <iframe width="560" height="315" src="<%= @category.video %>" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="content-informacion">
+        <p class="title">
+          <%= @category.name %>
+        </p>
+        <div class="menu-control">
+          <ul class="menu float-right">
+            <li><%= link_to 'Editar', edit_category_path(@category) %></li>
+            <li><%= link_to 'Regresar', categories_path %></li>
+          </ul>
+        </div>
+        <p class="line"></p>
+      </div>
+      <div class="row">
+        <div class="small-12 columns">
+          <p id="notice"><%= notice %></p>
+          <div class="content-informacion">
+            <p class="description"><%= @category.description %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @category.user %>
-</p>
-
-<p>
-  <strong>Level:</strong>
-  <%= @category.level %>
-</p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a id="preguntas" href="#"> pregunta</a>
+  <div class="content-pregunta" id="question">
+    <p>contenedor de pregunta
+      <a id="cerrar" href="#"> Cerrar</a>
+    </p>
+  </div>
+</div>
