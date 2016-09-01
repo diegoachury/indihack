@@ -36,8 +36,11 @@
                   <li>
                     <a href="#">Diego Achury</a>
                     <ul class="menu vertical">
-                      <li><%= link_to "Hacia la paz", categories_path,  class: "button paz"%></li>    						
+                      <li><%= link_to "Hacia la paz", categories_path,  class: "button paz"%></li>
                       <li><%= link_to 'Salir', destroy_user_session_path, :method=>'delete' %></li>
+                      <% if current_user.perfil = "admin" %>
+                        <li><%= link_to 'Nueva categoria', new_category_path %></li>
+                      <% end %>
                     </ul>
                   </li>
                 </ul>
